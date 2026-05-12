@@ -22,4 +22,18 @@ variable "redis_image" {
 	default     = "redis:alpine"
 }
 
+variable "github_token" {
+	description = "Personal Access Token GitHub"
+	type        = string
+	sensitive   = true
+	default     = "./GitHub_Token"
+}
+
+variable "db_url" {
+	description = "URL de base de données (pour le secret GitHub Actions)"
+	type        = string
+	sensitive   = true
+	default     = "postgresql://user:pass@localhost/mydb"
+}
+
 

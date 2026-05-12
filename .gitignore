@@ -1,0 +1,7 @@
+GitHub_Token
+GitHUb_Token
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+
