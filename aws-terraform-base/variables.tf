@@ -45,4 +45,11 @@ variable "instance_type" {
 variable "my_ip" {
   description = "Votre IP publique pour autoriser SSH (format CIDR : x.x.x.x/32)"
   type        = string
+  default     = "159.117.224.21"
+}
+
+variable "public_key_path" {
+  description = "Chemin vers la clé publique SSH"
+  type        = string
+  default     = "/home/lucas/.ssh/tp_terraform.pub"
 }
