@@ -1,0 +1,8 @@
+project_name       = "tp-terraform-votreprenom"
+owner              = "lucas.guillemin@efrei.fr"
+environment        = "dev"
+my_ip              = "159.117.224.20/32"
+aws_region         = "eu-west-3"
+vpc_cidr           = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+instance_type      = "t3.micro"

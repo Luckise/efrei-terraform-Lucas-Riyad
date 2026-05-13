@@ -1,0 +1,7 @@
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform.lock.hcl
+*.auto.tfvars
+# Never commit AWS credentials, access keys, secret keys, or session tokens.
