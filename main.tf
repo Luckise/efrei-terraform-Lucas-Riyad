@@ -7,7 +7,7 @@ resource "docker_image" "redis" {
 }
 
 resource "docker_network" "app" {
-	name = "app-network"
+	name = var.docker_network_name
 }
 
 resource "docker_container" "web" {
@@ -15,7 +15,7 @@ resource "docker_container" "web" {
 	image = docker_image.nginx.image_id
 
 	ports {
-		internal = 80
+		internal = var.container_internal_port
 		external = var.host_port
 	}
 
@@ -35,25 +35,25 @@ resource "docker_container" "redis" {
 
 resource "github_repository" "app" {
 	name        = "${var.project_name}-demo"
-	description = "Dépôt géré par Terraform - DevOps 4A"
+	description = var.github_repo_description
 	visibility  = "public"
-	has_issues  = true
-	auto_init   = true
+	has_issues  = var.github_repo_has_issues
+	auto_init   = var.github_repo_auto_init
 }
 
 resource "github_branch_protection" "main" {
 	repository_id = github_repository.app.node_id
-	pattern       = "main"
+	pattern       = var.github_branch_protection_pattern
 
 	required_pull_request_reviews {
-		required_approving_review_count = 1
-		dismiss_stale_reviews           = true
+		required_approving_review_count = var.github_required_approvals
+		dismiss_stale_reviews           = var.github_dismiss_stale_reviews
 	}
 }
 
 resource "github_actions_secret" "db_url" {
 	repository  = github_repository.app.name
-	secret_name = "DATABASE_URL"
+	secret_name = var.github_secret_name
 	plaintext_value = var.db_url
 }
 

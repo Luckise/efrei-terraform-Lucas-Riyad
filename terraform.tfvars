@@ -1,0 +1,13 @@
+project_name                       = "tp-terraform"
+host_port                          = 8080
+web_image                          = "nginx:alpine"
+redis_image                        = "redis:alpine"
+docker_network_name                = "app-network"
+container_internal_port            = 80
+github_repo_description            = "Dépôt géré par Terraform - DevOps 4A"
+github_secret_name                 = "DATABASE_URL"
+github_repo_has_issues             = true
+github_repo_auto_init              = true
+github_branch_protection_pattern   = "main"
+github_required_approvals          = 1
+github_dismiss_stale_reviews       = true
