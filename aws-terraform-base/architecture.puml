@@ -1,0 +1,29 @@
+@startuml
+title Architecture TP - AWS Terraform
+skinparam componentStyle rectangle
+
+actor Internet
+
+node VPC {
+  node "Public Subnet" as PublicSubnet {
+    [Bastion / Public EC2] as PublicEC2
+  }
+  node "Private Subnet" as PrivateSubnet {
+    [App Server / Private EC2] as PrivateEC2
+  }
+  [NAT Gateway] as NAT
+  [Internet Gateway] as IGW
+}
+
+database "S3 Bucket" as S3
+rectangle "IAM" as IAM
+
+Internet --> IGW
+IGW --> PublicEC2
+PublicEC2 --> PrivateEC2 : SSH (bastion)
+PrivateEC2 --> NAT : outbound
+PrivateEC2 --> S3 : access
+IAM ..> PublicEC2 : rôles/permissions
+IAM ..> PrivateEC2 : rôles/permissions
+
+@enduml

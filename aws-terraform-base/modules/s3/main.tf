@@ -1,10 +1,10 @@
 # ── S3 Bucket ──────────────────────────────────────
 resource "aws_s3_bucket" "assets" {
-  bucket = "${var.project_name}-assets-${var.name_suffix}"
+  bucket = replace(lower("${var.project_name}-assets-${var.name_suffix}"), "_", "-")
 
   tags = merge(
     var.common_tags,
-    { Name = "${var.project_name}-assets" }
+    { Name = replace(lower("${var.project_name}-assets"), "_", "-") }
   )
 }
 
