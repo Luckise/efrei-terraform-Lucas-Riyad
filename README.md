@@ -140,22 +140,10 @@ instance_type     = "t3.micro"
 ```
 
 
-## Captures à ajouter au rendu
+## Captures 
 
-Le TP demande normalement d'ajouter dans le README ou dans le dépôt :
-
-- une capture ou un log d'un `terraform apply` réussi
-- une capture de la connexion SSH à l'EC2
-- éventuellement une capture des ressources AWS dans la console
-
-Les images peuvent être ajoutées ensuite si nécessaire.
-
-## Bonus implémentés ou en cours
-
-- Modularisation de l'infrastructure AWS dans `aws-terraform-base/modules/`
-- Séparation des fichiers d'organisation avec `data.tf`, `locals.tf`, `networking.tf`, `security.tf`, `compute.tf` et `storage.tf`
-- Ajout de validations sur plusieurs variables côté AWS
-- Protection publique du bucket S3 via `aws_s3_bucket_public_access_block`
+### capture d'un `terraform apply` réussi
+### capture de la connexion SSH à l'EC2
 
 
 ## Destruction
@@ -166,4 +154,3 @@ Les images peuvent être ajoutées ensuite si nécessaire.
 terraform destroy
 ```
 
-Sur AWS, vérifier que les ressources principales ont bien disparu : EC2, VPC, S3 et autres ressources créées par le projet.
