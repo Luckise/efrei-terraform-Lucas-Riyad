@@ -1,7 +1,7 @@
 project_name               = "tp-terraform-lucas_riyad"
 owner                      = "lucas.guillemin@efrei.fr"
 environment                = "dev"
-my_ip                      = "13.38.32.38/32"
+my_ip                      = "91.167.140.204/32"
 aws_region                 = "eu-west-3"
 vpc_cidr                   = "10.0.0.0/16"
 public_subnet_cidr         = "10.0.1.0/24"
